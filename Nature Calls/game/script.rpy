@@ -113,32 +113,63 @@ label start:
 
     menu pm_response3:
 
-        "What kind of research?":
+        "Magical Seed?":
             jump research_response
 
         "Why were you kicked out?":
             jump kicked_out_response
         
     label kicked_out_response:
-        "kicked out story"
+        u "You see us scientist feel very strongly about interfering with nature... "
+        u "I however believe that since we caused this damage we must step in and reverse it if we can. I mean - look at what's left! "
+        u "My colleagues did not feel the same way and as I result I lost their trust. They will not allow me to return."
         $ kicked_out_flag = True
         jump check_flag
     
     label research_response:
-        "research description"
+        u "Yes magical! It's purely based on science of course but it really does feel like a magical discovery."
+        u "These seeds will be able to survive any climate and grow back our lush forests and plants. "
+        u "Unfortunately I never got to see the research complete... but I just have a feeling they figured it out."
         $ research_flag = True
         jump check_flag
     
     label check_flag:
         if research_flag and kicked_out_flag:
-            jump chapter1_end
+            jump pm_response4
         else:
             jump pm_response3
 
-    label end1:
-        "You continue on with your day daydreaming of a greener time."
+    menu pm_response4:
+        "Where can I find these scientists?":
+            jump pm_sign_off
+        "Why should I believe you?":
+            jump pm_sign_off
+
+    label pm_sign_off:
+        u "Go and see for yourself. You can find these scientists outside the sealed city beyond the abandoned steam stacks."
+        u "There aren't many people who appreciate what we've really lost anymore. It's too distant of a memory. I hope there are more of you out there. Good luck to you."
+
+        "\"@tr33sWillSaveU5\" status switched to unavailable."
     
+    "Is this information really true? Even if it was, is it worth the risk heading out beyond the city? The steam stacks are too far for any mobile service and oxygen is limited."
+    
+    scene bg-studyroom
+    with fade
+
+    "You look out your window at the metal city, smoggy air, and barren lands in the distance."
+
+    "Is it worth risk?"
+
+    menu chapter1:
+        "Yes.":
+            jump chapter1_end
+        "No.":
+            jump end1
+
     label chapter1_end:
         "End of chapter 1"
+    
+    label end1:
+        "You continue on with your day daydreaming of a greener time."
 
     return
