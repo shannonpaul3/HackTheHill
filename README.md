@@ -1,5 +1,5 @@
-# HackTheHill
-Hack the Hill 2023
+# Nature Calls
+Hack the Hill 2023 Game Jam Project
 
 Getting Started:
 
