@@ -24,10 +24,10 @@ define y = Character("You")
 define u = Character("@tr33sWillSaveU5")
 
 # Chapter 2
-define npc1 = Character("Rabbit 1")
-define npc2 = Character("Rabbit 2")
-define npc3 = Character("Rabbit 3")
-define npc_all = Character("Rabbit 1, 2, 3")
+define npc1 = Character("White Rabbit")
+define npc2 = Character("Pink Rabbit")
+define npc3 = Character("Blue Rabbit")
+define npc_all = Character("Rabbits")
 
 # Chapter 3
 define sci = Character("Scientist")
@@ -224,15 +224,15 @@ label start:
 
         "Who would you like to speak to?"
 
-        "Rabbit 1":
+        "White Rabbit":
             hide char-npc123
             jump ask_guard1
                         
-        "Rabbit 2":
+        "Pink Rabbit":
             hide char-npc123
             jump ask_guard2
 
-        "Rabbit 3":
+        "Blue Rabbit":
             hide char-npc123
             jump ask_guard3
 
@@ -444,7 +444,7 @@ label start:
         y "We need to take responsibility for our actions and do what we can to fix the problems we have created. "
 
         sci "You are right about taking responsibility. The truth is we are not ready."
-        sci "What you haven't been told is that this magic seed grows plants that release poisonous gases to humans."
+        sci "What you haven't been told is that the plants grown from these seeds, release gases that are poisonous to humans."
         sci "So posoinous we have no material capable of keeping it out."
         sci "The planet would survive but we would not. Are you sure you are ready to take responsibility?" 
         jump make_choice
@@ -459,11 +459,13 @@ label start:
     label end4:
         sci "We understand. This is not our decision to make."
         hide char-scientist
+        stop music fadeout 1.0
         "The scientists welcome you to stay with them at the lab. To live out your days appreciating the last natural plants on the planet."
         "Nature must run its course."
+
     label end5:
         hide char-scientist
+        stop music fadeout 1.0
         "Let's put the planet first for once!"
 
-    play sound "game_over.ogg"
     return
