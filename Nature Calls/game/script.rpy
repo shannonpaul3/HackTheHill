@@ -63,14 +63,15 @@ label start:
     
     label choice_post1:
         "..."
+        play sound "ding.ogg"
         "*Ding*"
-        
 
         u "no natural greenery? no fresh air? ... are you sure about that?"
         jump response
 
     label choice_post2:
         "..."
+        play sound "ding.ogg"
         "*Ding*"
 
         u "i know something you don't..."
@@ -102,6 +103,7 @@ label start:
         jump choice_reponse
 
     label choice_reponse: 
+        play sound "ding.ogg"
         "*Ding*"
         "The notification reads \"Message request from  @tr33sWillSaveU5\""
     
@@ -181,7 +183,7 @@ label start:
 
     "You look out your window at the metal city, smoggy air, and barren lands in the distance."
 
-    "Is this information really true? Is it worth risk?"
+    "Is this information really true? Is it worth the risk?"
 
     menu chapter1:
         "Yes.":
@@ -220,17 +222,17 @@ label start:
 
     menu ask:
 
-        "Which guard do you want to ask?"
+        "Who would you like to speak to?"
 
-        "Guard 1":
+        "Rabbit 1":
             hide char-npc123
             jump ask_guard1
                         
-        "Guard 2":
+        "Rabbit 2":
             hide char-npc123
             jump ask_guard2
 
-        "Guard 3":
+        "Rabbit 3":
             hide char-npc123
             jump ask_guard3
 
@@ -240,24 +242,24 @@ label start:
         with dissolve
 
         if guard1_answered:
-            npc1 "You already asked me"
+            npc1 "You already asked me!"
             jump ask
         else:
             menu question1: 
-                npc1 "What question do you want to ask"
+                npc1 "Pick a question."
 
-                "Which path should I go?":
+                "Which path should I follow?":
 
-                    npc1 "My path 1 would lead you to freedom"
+                    npc1 "My path is the right way."
 
 
-                "Are you the liar or the truth-teller?":
+                "Are you the lying or telling the truth?":
 
-                    npc1 "I'm the truth teller"
+                    npc1 "I am the truth teller."
 
-                "What would the other guards say if I asked them which door leads to freedom?":
+                "What would the others say if I asked them which path leads to the lab?":
 
-                    npc1 "Path 1 or 2"
+                    npc1 "Path 1 or 2."
 
         $ guard1_answered = True
 
@@ -275,23 +277,23 @@ label start:
         with dissolve
 
         if guard2_answered:
-            npc2 "You already asked me"
+            npc2 "I already gave you answers!"
             jump ask
         else:
             menu question2: 
-                npc2 "What question do you want to ask"
+                npc2 "Pick a question."
                 
-                "Which path should I go?":
+                "Which path should I follow?":
                     
-                    npc2 "My path 2 would lead you to freedom"
+                    npc2 "You can trust me! My path is the right way."
 
-                "Are you the liar or the truth-teller?":
+                "Are you the lying or telling the truth?":
 
-                    npc2 "I'm the truth teller"
+                    npc2 "I never lie!"
 
-                "What would the other guards say if I asked them which door leads to freedom?":
+                "What would the others say if I asked them which path leads to the lab?":
 
-                    npc2 "Path 1 or 2"
+                    npc2 "Path 1 or 2."
 
         $ guard2_answered = True
 
@@ -309,23 +311,23 @@ label start:
         with dissolve
 
         if guard3_answered:
-            npc3 "You already asked me"
+            npc3 "You already spoke with me."
             jump ask
         else:
             menu question3: 
-                npc3 "What question do you want to ask"
+                npc3 "Pick a question."
 
-                "Which path should I go?":
+                "Which path should I follow?":
                 
-                    npc3 "My path 2 would lead you to freedom"
+                    npc3 "I promise, my path is the right way."
 
-                "Are you the liar or the truth-teller?":
+                "Are you the lying or telling the truth?":
 
-                    npc3 "I'm the truth teller"
+                    npc3 "I'm telling the truth!"
 
-                "What would the other guards say if I asked them which door leads to freedom?":
+                "What would the others say if I asked them which path leads to the lab?":
 
-                    npc3 "Path 1 or 2"
+                    npc3 "Path 1 or 2."
 
         $ guard3_answered = True
         
@@ -359,7 +361,7 @@ label start:
         scene bg-gate
         with fade
 
-        "You follow the path until you reach a fence with locked gate."
+        "You follow the path until you reach a fence with a locked gate."
         "Upon closer inspection, you notice a key pad. This seems to be the only way through."
     
     label key_pad:
@@ -373,8 +375,9 @@ label start:
         
         if code_input == "846":
             
+            play sound "beep.ogg"
             "*Buzz*"
-            "A light turns green and the gate unlocks."
+            "A light turns green and the gate unlocks. You walk through."
             
             jump chapter3_start
 
@@ -382,9 +385,10 @@ label start:
             if password_attempt == 2:
                 jump end3
             
+            play sound "buzz.ogg"
             "*Buzz*"
             "A light turns red. [code_input] is the wrong code."
-            "One chance remaining."
+            "Try again."
 
             $ password_attempt = password_attempt + 1
             $ code_input = ""
@@ -408,7 +412,6 @@ label start:
     ################################################################################################################
     #Chapter 3
     label chapter3_start:
-        "Chapter 3"
 
         scene bg-lab
         with fade
@@ -441,24 +444,26 @@ label start:
         y "We need to take responsibility for our actions and do what we can to fix the problems we have created. "
 
         sci "You are right about taking responsibility. The truth is we are not ready."
-        sci "What you haven't been told is that this magic seed grows plants that release gases poisonous to humans."
+        sci "What you haven't been told is that this magic seed grows plants that release poisonous gases to humans."
         sci "So posoinous we have no material capable of keeping it out."
         sci "The planet would survive but we would not. Are you sure you are ready to take responsibility?" 
         jump make_choice
 
     menu make_choice:
 
-        "I did not realize that was the case. I do not think I am ready for this.":
+        "I do not think I am ready to make this decision.":
             jump end4
         "The fate of the planet is in our hands, and we have a responsibility to act.":
             jump end5
 
     label end4:
+        sci "We understand. This is not our decision to make."
         hide char-scientist
         "The scientists welcome you to stay with them at the lab. To live out your days appreciating the last natural plants on the planet."
         "Nature must run its course."
     label end5:
         hide char-scientist
-        "End"
+        "Let's put the planet first for once!"
 
+    play sound "game_over.ogg"
     return
