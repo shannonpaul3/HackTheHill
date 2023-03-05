@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 128: expected menuitem
-    if !research_flag:
-    ^
+File "game/options.rpy", line 53: expected '=' not found.
+    define sounddefine sound.default_channel = Channel(0, 1)
+                       ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sat Mar  4 16:48:41 2023
+Sat Mar  4 21:41:48 2023
