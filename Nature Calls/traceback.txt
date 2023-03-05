@@ -1,37 +1,45 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 12, in script
-    define y = Character("You").color('red')
-  File "game/script.rpy", line 12, in script
-    define y = Character("You").color('red')
-  File "game/script.rpy", line 12, in <module>
-    define y = Character("You").color('red')
-AttributeError: 'ADVCharacter' object has no attribute 'color'
+  File "game/script.rpy", line 55, in script
+    menu post:
+OSError: Couldn't find file 'audio/ding.mp3'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "/Users/aiko/Desktop/renpy-8.0.3-sdk/renpy/bootstrap.py", line 277, in bootstrap
-    renpy.main.main()
-  File "/Users/aiko/Desktop/renpy-8.0.3-sdk/renpy/main.py", line 558, in main
-    renpy.game.context().run(node)
-  File "game/script.rpy", line 12, in script
-    define y = Character("You").color('red')
+  File "game/script.rpy", line 55, in script
+    menu post:
+  File "/Users/aiko/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 1903, in execute
+    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
+  File "/Users/aiko/Desktop/renpy-8.0.3-sdk/renpy/exports.py", line 1010, in menu
+    rv = renpy.store.menu(new_items)
+  File "/Users/aiko/Desktop/renpy-8.0.3-sdk/renpy/exports.py", line 1250, in display_menu
+    rv = renpy.ui.interact(mouse='menu', type=type, roll_forward=roll_forward)
+  File "/Users/aiko/Desktop/renpy-8.0.3-sdk/renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/Users/aiko/Desktop/renpy-8.0.3-sdk/renpy/display/core.py", line 3377, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/Users/aiko/Desktop/renpy-8.0.3-sdk/renpy/display/core.py", line 3846, in interact_core
+    renpy.audio.audio.interact()
+  File "/Users/aiko/Desktop/renpy-8.0.3-sdk/renpy/audio/audio.py", line 1213, in interact
+    periodic()
+  File "/Users/aiko/Desktop/renpy-8.0.3-sdk/renpy/audio/audio.py", line 1166, in periodic
+    raise_(exc[0], exc[1], exc[2])
   File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 441, in raise_
-  File "game/script.rpy", line 12, in script
-    define y = Character("You").color('red')
-  File "/Users/aiko/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 2441, in execute
-    self.set()
-  File "/Users/aiko/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 2455, in set
-    value = renpy.python.py_eval_bytecode(self.code.bytecode)
-  File "/Users/aiko/Desktop/renpy-8.0.3-sdk/renpy/python.py", line 1085, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 12, in <module>
-    define y = Character("You").color('red')
-AttributeError: 'ADVCharacter' object has no attribute 'color'
+  File "/Users/aiko/Desktop/renpy-8.0.3-sdk/renpy/audio/audio.py", line 1144, in periodic_thread_main
+    periodic_pass()
+  File "/Users/aiko/Desktop/renpy-8.0.3-sdk/renpy/audio/audio.py", line 1086, in periodic_pass
+    c.periodic()
+  File "/Users/aiko/Desktop/renpy-8.0.3-sdk/renpy/audio/audio.py", line 517, in periodic
+    topf = load(filename)
+  File "/Users/aiko/Desktop/renpy-8.0.3-sdk/renpy/audio/audio.py", line 70, in load
+    rv = renpy.loader.load(fn)
+  File "/Users/aiko/Desktop/renpy-8.0.3-sdk/renpy/loader.py", line 820, in load
+    raise IOError("Couldn't find file '%s'." % name)
+OSError: Couldn't find file 'audio/ding.mp3'.
 
 macOS-10.15.2-x86_64-i386-64bit x86_64
 Ren'Py 8.0.3.22090809
 Nature Calls 1.0
-Sat Mar  4 17:09:26 2023
+Sat Mar  4 21:56:48 2023
