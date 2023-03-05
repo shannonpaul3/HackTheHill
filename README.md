@@ -1,6 +1,9 @@
 # Nature Calls
 Hack the Hill 2023 Game Jam Project
 
+## Authors
+Shannon Paul, Katie Nguyen, Paul Hoang, Jiayu Hu
+
 ## ABOUT THE GAME
 
 In the near future, Earth is facing a catastrophic ecological crisis caused by years of pollution, deforestation, and climate change. The once-beautiful landscapes are now barren, and the air and water are toxic. As a result, humans are forced to live in sealed cities to survive……
@@ -25,3 +28,6 @@ Convenience save/load system that enables the player to try multiple times
 ## TARGET AUDIENCES OF OUR GAME
 
 Young adults, sci-fi fans, visual novel fans
+
+## DevPost Page
+https://devpost.com/software/nature-calls
